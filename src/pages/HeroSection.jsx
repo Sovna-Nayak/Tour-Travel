@@ -22,7 +22,7 @@ const HeroSection = () => {
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="text-center text-white">
-            <h1 className="text-5xl font-bold mb-4">Explore the World with FirstTravel</h1>
+            <h1 className="text-5xl font-bold mb-4">Explore the World with First Track Tour @ Travel</h1>
             <p className="text-xl mb-8">Discover amazing destinations at the best prices</p>
             <button className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition flex items-center mx-auto">
               <Search className="h-5 w-5 mr-2" />
