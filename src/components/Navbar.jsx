@@ -83,7 +83,6 @@
 
 
 
-// components/Navbar.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, User, Search } from "lucide-react";
@@ -94,7 +93,7 @@ const Navbar = () => {
   return (
     // <nav className="sticky top-0 z-50 backdrop-blur-md bg-gradient-to-r from-blue-600/90 via-sky-500/90 to-cyan-400/90 shadow-lg">
     <nav className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 shadow-lg sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-6 lg:px-10">
 
         <div className="flex justify-between items-center h-16">
 
@@ -134,6 +133,10 @@ const Navbar = () => {
             <Link to="/transport"
               className="text-white hover:text-yellow-200 transition duration-300">
               Transport
+            </Link>
+            <Link to="/rent"
+              className="text-white hover:text-yellow-200 transition duration-300">
+              Rent Bike
             </Link>
 
             {/* Search */}

@@ -8,6 +8,7 @@ import Packages from './pages/Packages';
 import Hotels from './pages/Hotel';
 import Transport from './pages/Transport';
 import BookingCalendar from './components/BookingCalendar';
+import Rent from "./pages/Rent";
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import './index.css';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/packages" element={<Packages />} />
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/transport" element={<Transport />} />
+          <Route path="/rent" element={<Rent />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
