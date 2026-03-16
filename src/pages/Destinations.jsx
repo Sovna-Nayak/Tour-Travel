@@ -20,7 +20,7 @@ const Destinations = () => {
       name: "Manali",
       country: "India",
       description: "Hill station in Himachal Pradesh known for snow-capped mountains and adventure sports.",
-      image: "url('/images/manaliPic.jpg')",
+      image: "/manali.jpg",
       rating: 4.7,
       packages: 38,
       popularSpots: ["Solang Valley", "Rohtang Pass", "Hadimba Temple"]
@@ -50,7 +50,7 @@ const Destinations = () => {
       name: "Jaipur",
       country: "India",
       description: "Pink City famous for royal palaces, forts, and vibrant culture.",
-      image: "https://images.unsplash.com/photo-1477587458883-47145fc2b2c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      image: "jaipur.jpg",
       rating: 4.6,
       packages: 41,
       popularSpots: ["Hawa Mahal", "Amer Fort", "City Palace"]
@@ -60,7 +60,7 @@ const Destinations = () => {
       name: "Andaman",
       country: "India",
       description: "Tropical paradise with pristine beaches and water sports.",
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb703e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      image: "andaman.jpg",
       rating: 4.7,
       packages: 33,
       popularSpots: ["Havelock", "Neil Island", "Port Blair"]
@@ -80,7 +80,7 @@ const Destinations = () => {
       name: "Udaipur",
       country: "India",
       description: "City of Lakes, romantic destinations and magnificent palaces.",
-      image: "https://images.unsplash.com/photo-1557576800-3a0f0b3f7c3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      image: "udaipur.jpg",
       rating: 4.8,
       packages: 36,
       popularSpots: ["Lake Pichola", "City Palace", "Jag Mandir"]
