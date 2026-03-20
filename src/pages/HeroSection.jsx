@@ -250,6 +250,7 @@
 
 
 
+
 import React, { useState, useEffect } from "react";
 import { Search, Star } from "lucide-react";
 import BookingCalendar from "../components/BookingCalendar";
@@ -268,15 +269,40 @@ const HeroSection = () => {
   }, []);
 
   const featuredDestinations = [
-        { id: 1, name: 'Goa', price: '₹15,999', image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=500&q=60', rating: 4.5 },
-        { id: 2, name: 'Manali', price: '₹12,499', image: '/manali.jpg', rating: 4.3 },
-        { id: 3, name: 'Kerala', price: '₹18,999', image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=500&q=60', rating: 4.7 },
-        { id: 4, name: 'Ladakh', price: '₹22,999', image: 'https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=500&q=60', rating: 4.8 },
-      ];
+    {
+      id: 1,
+      name: "Goa",
+      price: "₹15,999",
+      image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=500",
+      rating: 4.5,
+    },
+    {
+      id: 2,
+      name: "Manali",
+      price: "₹12,499",
+      image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500",
+      rating: 4.3,
+    },
+    {
+      id: 3,
+      name: "Kerala",
+      price: "₹18,999",
+      image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=500",
+      rating: 4.7,
+    },
+    {
+      id: 4,
+      name: "Ladakh",
+      price: "₹22,999",
+      image: "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?w=500",
+      rating: 4.8,
+    },
+  ];
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
 
-      {/* HERO IMAGE */}
+      {/* HERO */}
       <div className="relative rounded-2xl overflow-hidden mb-8 shadow-lg">
         <img
           src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=2000"
@@ -284,7 +310,7 @@ const HeroSection = () => {
           className="w-full h-[300px] md:h-[500px] object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white px-4">
+        <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center px-4">
           <h1 className="text-2xl md:text-5xl font-bold mb-3">
             Explore the World
           </h1>
@@ -304,22 +330,36 @@ const HeroSection = () => {
 
         <div className="flex flex-col gap-4 md:grid md:grid-cols-5">
 
+          {/* From */}
           <input
             type="text"
             placeholder="From"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
           />
 
+          {/* To */}
           <input
             type="text"
             placeholder="To"
             className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
           />
 
-          <input
-            type="date"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
-          />
+          {/* Date FIXED */}
+          <div className="relative w-full">
+            <input
+              type="text"
+              placeholder="dd-mm-yyyy"
+              onFocus={(e) => (e.target.type = "date")}
+              onBlur={(e) => {
+                if (!e.target.value) e.target.type = "text";
+              }}
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 
+              focus:ring-2 focus:ring-blue-500 outline-none appearance-none"
+            />
+            <span className="absolute right-3 top-3 text-gray-500 pointer-events-none">
+              📅
+            </span>
+          </div>
 
           {/* Travelers */}
           <div className="relative">
@@ -352,6 +392,7 @@ const HeroSection = () => {
             )}
           </div>
 
+          {/* Button */}
           <button className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700">
             Search
           </button>
@@ -359,7 +400,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* CALENDAR SECTION */}
+      {/* CALENDAR */}
       <div className="mb-10">
 
         <h2 className="text-2xl md:text-3xl font-bold mb-5">
@@ -375,7 +416,6 @@ const HeroSection = () => {
           </div>
 
           <div className="bg-white rounded-xl shadow-md p-5">
-
             <h3 className="text-lg font-semibold mb-3">
               Rental Availability
             </h3>
@@ -385,7 +425,6 @@ const HeroSection = () => {
             </p>
 
             <div className="space-y-3 text-sm">
-
               <div className="flex justify-between p-3 bg-green-50 rounded-lg">
                 <span>Mountain View Villa</span>
                 <span className="text-green-600">Available</span>
@@ -400,9 +439,7 @@ const HeroSection = () => {
                 <span>City Center Studio</span>
                 <span className="text-green-600">Available</span>
               </div>
-
             </div>
-
           </div>
 
         </div>
@@ -421,7 +458,6 @@ const HeroSection = () => {
             <img src={dest.image} alt={dest.name} className="w-full h-40 object-cover" />
 
             <div className="p-3">
-
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold">{dest.name}</h3>
                 <span className="flex items-center text-sm text-yellow-500">
@@ -434,8 +470,8 @@ const HeroSection = () => {
               <button className="mt-2 w-full bg-blue-600 text-white py-1 rounded-lg hover:bg-blue-700">
                 View
               </button>
-
             </div>
+
           </div>
         ))}
 
