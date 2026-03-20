@@ -1,8 +1,11 @@
-// pages/Packages.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Star, Clock, Users } from 'lucide-react';
 
+
 const Packages = () => {
+  const [days, setDays] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [travelers, setTravelers] = useState("Adult"); 
   const packages = [
     {
       id: 1,
@@ -77,7 +80,112 @@ const Packages = () => {
       <h1 className="text-4xl font-bold mb-8">Travel Packages</h1>
       
       {/* Filters */}
-      <div className="bg-white rounded-lg shadow p-6 mb-8">
+          <div className="bg-white rounded-lg shadow p-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="relative">
+
+{/* Dropdown Box */}
+<div
+onClick={() => setOpen(!open)}
+className="border rounded-lg px-4 py-2 bg-white cursor-pointer transition-all duration-300"
+>
+
+{/* Top Row */}
+<div className="flex justify-between items-center">
+  <span className="text-gray-600">Days</span>
+  <span className="font-semibold">
+    {days ? days : ""}
+  </span>
+</div>
+
+{/* Expand Section */}
+{open && (
+  <div className="mt-3 pt-3 border-t flex justify-between items-center">
+
+    <span className="text-gray-600">Select Days</span>
+
+    <div className="flex items-center gap-3">
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setDays(days > 1 ? days - 1 : 1);
+        }}
+        className="bg-gray-200 px-3 py-1 rounded"
+      >
+        -
+      </button>
+
+      <span className="font-semibold">
+        {days ? days : 1}
+      </span>
+
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          setDays((days || 0) + 1);
+        }}
+        className="bg-gray-200 px-3 py-1 rounded"
+      >
+        +
+      </button>
+    </div>
+
+  </div>
+)}
+
+</div>
+</div>
+              {/* Duration Counter */}
+              {/* <div className="border rounded-lg px-4 py-2 flex items-center justify-between">
+                <span className="text-gray-600">Days</span> */}
+
+                {/* <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setDays(days > 1 ? days - 1 : 1)}
+                    className="bg-gray-200 px-2 rounded hover:bg-gray-300"
+                  >
+                    -
+                  </button>
+
+                  <span className="font-semibold">{days}</span>
+
+                  <button
+                    onClick={() => setDays(days + 1)}
+                    className="bg-gray-200 px-2 rounded hover:bg-gray-300"
+                  >
+                    +
+                  </button>
+                </div> */}
+              {/* </div> */}
+
+              {/* Budget */}
+              <select className="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
+                <option>Budget</option>
+                <option>Under ₹15,000</option>
+                <option>₹15,000 - ₹25,000</option>
+                <option>Above ₹25,000</option>
+              </select>
+
+              {/* Travelers */}
+              <select
+                value={travelers}
+                onChange={(e) => setTravelers(e.target.value)}
+                className="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500"
+              >
+                <option value="Adult">Adult</option>
+                <option value="Couple">Couple</option>
+                <option value="Family">Family</option>
+                <option value="Group">Group</option>
+              </select>
+
+              {/* Button */}
+              <button className="bg-blue-600 text-white rounded-lg px-6 py-2 hover:bg-blue-700 transition">
+                Apply Filters
+              </button>
+
+            </div>
+         </div>
+      {/* <div className="bg-white rounded-lg shadow p-6 mb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <select className="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
             <option>Duration</option>
@@ -102,7 +210,7 @@ const Packages = () => {
             Apply Filters
           </button>
         </div>
-      </div>
+      </div> */}
 
       {/* Packages Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

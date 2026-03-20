@@ -1,170 +1,31 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import { Search, Calendar, Star, Users, MapPin, Award } from 'lucide-react';
-// import BookingCalendar from '../components/BookingCalendar';
-
-// const HeroSection = () => {
-//   const featuredDestinations = [
-//     { id: 1, name: 'Goa', price: '₹15,999', image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', rating: 4.5 },
-//     { id: 2, name: 'Manali', price: '₹12,499', image: 'https://images.unsplash.com/photo-1626621341517-bfba3f45c572?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', rating: 4.3 },
-//     { id: 3, name: 'Kerala', price: '₹18,999', image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', rating: 4.7 },
-//     { id: 4, name: 'Ladakh', price: '₹22,999', image: 'https://images.unsplash.com/photo-1544984243-ec57ea16fe25?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', rating: 4.8 },
-//   ];
-
-//   return (
-//     // <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-//     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 
-// bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 shadow-xl shadow-yellow-200 rounded-xl">
-//        {/* Hero Section */}
-//       <div className="relative rounded-2xl overflow-hidden mb-12">
-//         <img 
-//           src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-//           alt="Travel Hero"
-//           className="w-full h-[500px] object-cover"
-//         />
-//         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-//           <div className="text-center text-white">
-//             <h1 className="text-5xl font-bold mb-4">Explore the World with FirstTrack Tour & Travel</h1>
-//             <p className="text-xl mb-8">Discover amazing destinations at the best prices</p>
-//             <button className="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition flex items-center mx-auto">
-//               <Search className="h-5 w-5 mr-2" />
-//               Start Your Journey
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Search Bar */}
-//       <div className="bg-white shadow-lg rounded-lg p-6 mb-12">
-//         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-//           <input
-//             type="text"
-//             placeholder="Where to?"
-//             className="border rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-//           />
-//           <input
-//             type="date"
-//             className="border rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500"
-//           />
-//           <select className="border rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500">
-//             <option>1 Traveler</option>
-//             <option>2 Travelers</option>
-//             <option>3 Travelers</option>
-//             <option>4+ Travelers</option>
-//           </select>
-//           <button className="bg-blue-600 text-white rounded-lg px-6 py-3 hover:bg-blue-700 transition">
-//             Search
-//           </button>
-//         </div>
-//       </div>
-
-//       {/* Calendar Section */}
-//       <div className="mb-12">
-//         <h2 className="text-3xl font-bold mb-6">Check Availability</h2>
-//         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-//           <BookingCalendar />
-//           <div className="bg-white rounded-lg shadow p-6">
-//             <h3 className="text-xl font-semibold mb-4">Rental Availability</h3>
-//             <p className="text-gray-600 mb-4">Select dates to check rental availability</p>
-//             <div className="space-y-3">
-//               <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
-//                 <span>Mountain View Villa</span>
-//                 <span className="text-green-600">Available</span>
-//               </div>
-//               <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
-//                 <span>Beachside Apartment</span>
-//                 <span className="text-red-600">Booked (Mar 15-20)</span>
-//               </div>
-//               <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
-//                 <span>City Center Studio</span>
-//                 <span className="text-green-600">Available</span>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* Featured Destinations */}
-//       <h2 className="text-3xl font-bold mb-6">Popular Destinations</h2>
-//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-//         {featuredDestinations.map((dest) => (
-//           <div key={dest.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition">
-//             <img src={dest.image} alt={dest.name} className="w-full h-48 object-cover" />
-//             <div className="p-4">
-//               <div className="flex justify-between items-center mb-2">
-//                 <h3 className="text-xl font-semibold">{dest.name}</h3>
-//                 <div className="flex items-center">
-//                   <Star className="h-4 w-4 text-yellow-400 fill-current" />
-//                   <span className="ml-1 text-gray-600">{dest.rating}</span>
-//                 </div>
-//               </div>
-//               <p className="text-gray-600 mb-3">Starting from <span className="text-blue-600 font-bold">{dest.price}</span></p>
-//               <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
-//                 View Packages
-//               </button>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Features Section */}
-//       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-//         <div className="text-center">
-//           <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-//             <MapPin className="h-8 w-8 text-blue-600" />
-//           </div>
-//           <h3 className="font-semibold mb-2">100+ Destinations</h3>
-//           <p className="text-gray-600">Explore worldwide locations</p>
-//         </div>
-//         <div className="text-center">
-//           <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-//             <Calendar className="h-8 w-8 text-blue-600" />
-//           </div>
-//           <h3 className="font-semibold mb-2">Easy Booking</h3>
-//           <p className="text-gray-600">Simple and secure reservations</p>
-//         </div>
-//         <div className="text-center">
-//           <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-//             <Users className="h-8 w-8 text-blue-600" />
-//           </div>
-//           <h3 className="font-semibold mb-2">10k+ Happy Customers</h3>
-//           <p className="text-gray-600">Trusted by travelers worldwide</p>
-//         </div>
-//         <div className="text-center">
-//           <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-//             <Award className="h-8 w-8 text-blue-600" />
-//           </div>
-//           <h3 className="font-semibold mb-2">Best Price Guarantee</h3>
-//           <p className="text-gray-600">We match any lower price</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default HeroSection;
-
-
-
-
-
-
-
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Search, Calendar, Star, Users, MapPin, Award } from 'lucide-react';
 import BookingCalendar from '../components/BookingCalendar';
 
 const HeroSection = () => {
 
+  // ✅ Correct state
+  const [travelers, setTravelers] = useState(1);
+  const [open, setOpen] = useState(false);
+
+  const increase = () => setTravelers(prev => prev + 1);
+  const decrease = () => setTravelers(prev => (prev > 1 ? prev - 1 : 1));
+
+  // ✅ Close dropdown on outside click
+  useEffect(() => {
+    const close = () => setOpen(false);
+    window.addEventListener("click", close);
+    return () => window.removeEventListener("click", close);
+  }, []);
+
   const featuredDestinations = [
     { id: 1, name: 'Goa', price: '₹15,999', image: 'https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=500&q=60', rating: 4.5 },
-    { id: 2, name: 'Manali', price: '₹12,499', image: 'https://images.unsplash.com/photo-1626621341517-bfba3f45c572?auto=format&fit=crop&w=500&q=60', rating: 4.3 },
+    { id: 2, name: 'Manali', price: '₹12,499', image: '/manali.jpg', rating: 4.3 },
     { id: 3, name: 'Kerala', price: '₹18,999', image: 'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=500&q=60', rating: 4.7 },
     { id: 4, name: 'Ladakh', price: '₹22,999', image: 'https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=500&q=60', rating: 4.8 },
   ];
 
   return (
-
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10
     bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-100 
     shadow-xl rounded-2xl">
@@ -179,7 +40,6 @@ const HeroSection = () => {
         />
 
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-
           <div className="text-center text-white px-4">
 
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -190,61 +50,116 @@ const HeroSection = () => {
               Discover amazing destinations at the best prices
             </p>
 
-            <button className="bg-blue-600 hover:bg-blue-700
-            px-8 py-3 rounded-xl font-semibold
-            flex items-center mx-auto transition shadow-lg">
-
+            <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-xl font-semibold flex items-center mx-auto transition shadow-lg">
               <Search className="h-5 w-5 mr-2" />
               Start Your Journey
-
             </button>
 
           </div>
         </div>
       </div>
 
-      {/* Search Box */}
-      <div className="backdrop-blur-lg bg-white/80 shadow-xl rounded-xl p-6 mb-14 border border-gray-200">
+        {/* Search Box (Updated Design) */}
+        <div className="bg-white shadow-lg rounded-2xl p-4 mb-14">
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
 
-          <input
-            type="text"
-            placeholder="Where to?"
-            className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-400 outline-none"
-          />
+            {/* From */}
+            <input
+              type="text"
+              placeholder="From"
+              className="border border-gray-300 rounded-xl px-4 py-3 
+              focus:ring-2 focus:ring-blue-500 outline-none 
+              hover:border-black transition"
+            />
 
-          <input
-            type="date"
-            className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-400 outline-none"
-          />
+            {/* To */}
+            <input
+              type="text"
+              placeholder="To"
+              className="border border-gray-300 rounded-xl px-4 py-3 
+              focus:ring-2 focus:ring-blue-500 outline-none 
+              hover:border-black transition"
+            />
 
-          <select className="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-400 outline-none">
+            {/* Date */}
+            <div className="relative">
+              <input
+                type="date"
+                className="border border-gray-300 rounded-xl px-4 py-3 w-full
+                focus:ring-2 focus:ring-blue-500 outline-none 
+                hover:border-black transition"
+              />
+            </div>
 
-            <option>1 Traveler</option>
-            <option>2 Travelers</option>
-            <option>3 Travelers</option>
-            <option>4+ Travelers</option>
+            {/* Travelers Dropdown */}
+            <div className="relative">
 
-          </select>
+              {/* Main Box */}
+              <div
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setOpen(!open);
+                }}
+                className="border border-gray-300 rounded-xl px-4 py-3 
+                flex justify-between items-center cursor-pointer
+                hover:border-black transition"
+              >
+                <span>{travelers} Passenger{travelers > 1 ? "s" : ""}</span>
+                <span>▼</span>
+              </div>
 
-          <button className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-6 py-3 transition shadow-md">
+              {/* Dropdown */}
+              {open && (
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className="absolute left-0 mt-2 w-full bg-white 
+                  border border-gray-200 rounded-xl shadow-lg p-4 z-50"
+                >
+                  <div className="flex justify-between items-center">
 
-            Search
+                    <span className="font-medium text-gray-700">Passengers</span>
 
-          </button>
+                    <div className="flex items-center gap-3">
 
+                      <button
+                        onClick={decrease}
+                        className="w-8 h-8 rounded-full border border-gray-300 hover:bg-gray-100"
+                      >
+                        -
+                      </button>
+
+                      <span className="font-semibold">{travelers}</span>
+
+                      <button
+                        onClick={increase}
+                        className="w-8 h-8 rounded-full bg-blue-600 text-white hover:bg-blue-700"
+                      >
+                        +
+                      </button>
+
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Search Button */}
+            <button className="bg-blue-600 hover:bg-blue-700 text-white 
+            rounded-xl px-6 py-3 transition font-medium">
+              Search
+            </button>
+
+          </div>
         </div>
-      </div>
+
+
 
       {/* Calendar Section */}
-
       <div className="mb-14">
 
         <h2 className="text-3xl font-bold mb-6 text-gray-800">
-
           Check Availability
-
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -254,53 +169,28 @@ const HeroSection = () => {
           <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
 
             <h3 className="text-xl font-semibold mb-4">
-
               Rental Availability
-
             </h3>
 
             <p className="text-gray-600 mb-4">
-
               Select dates to check rental availability
-
             </p>
 
             <div className="space-y-3">
 
-              <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-
+              <div className="flex justify-between p-3 bg-green-50 rounded-lg">
                 <span>Mountain View Villa</span>
-
-                <span className="text-green-600 font-medium">
-
-                  Available
-
-                </span>
-
+                <span className="text-green-600 font-medium">Available</span>
               </div>
 
-              <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
-
+              <div className="flex justify-between p-3 bg-red-50 rounded-lg">
                 <span>Beachside Apartment</span>
-
-                <span className="text-red-600 font-medium">
-
-                  Booked (Mar 15-20)
-
-                </span>
-
+                <span className="text-red-600 font-medium">Booked</span>
               </div>
 
-              <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-
+              <div className="flex justify-between p-3 bg-green-50 rounded-lg">
                 <span>City Center Studio</span>
-
-                <span className="text-green-600 font-medium">
-
-                  Available
-
-                </span>
-
+                <span className="text-green-600 font-medium">Available</span>
               </div>
 
             </div>
@@ -311,166 +201,40 @@ const HeroSection = () => {
       </div>
 
       {/* Featured Destinations */}
-
       <h2 className="text-3xl font-bold mb-8 text-gray-800">
-
         Popular Destinations
-
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
 
         {featuredDestinations.map((dest) => (
+          <div key={dest.id} className="bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden">
 
-          <div key={dest.id}
-          className="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden">
-
-            <img
-              src={dest.image}
-              alt={dest.name}
-              className="w-full h-48 object-cover"
-            />
+            <img src={dest.image} alt={dest.name} className="w-full h-48 object-cover" />
 
             <div className="p-4">
 
               <div className="flex justify-between items-center mb-2">
-
-                <h3 className="text-lg font-semibold">
-
-                  {dest.name}
-
-                </h3>
+                <h3 className="text-lg font-semibold">{dest.name}</h3>
 
                 <div className="flex items-center">
-
                   <Star className="h-4 w-4 text-yellow-400 fill-current"/>
-
-                  <span className="ml-1 text-gray-600">
-
-                    {dest.rating}
-
-                  </span>
-
+                  <span className="ml-1 text-gray-600">{dest.rating}</span>
                 </div>
-
               </div>
 
               <p className="text-gray-600 mb-3">
-
                 Starting from
-                <span className="text-blue-600 font-bold ml-1">
-
-                  {dest.price}
-
-                </span>
-
+                <span className="text-blue-600 font-bold ml-1">{dest.price}</span>
               </p>
 
               <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">
-
                 View Packages
-
               </button>
 
             </div>
-
           </div>
-
         ))}
-
-      </div>
-
-      {/* Features */}
-
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
-
-        <div className="text-center">
-
-          <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-
-            <MapPin className="h-8 w-8 text-blue-600"/>
-
-          </div>
-
-          <h3 className="font-semibold mb-1">
-
-            100+ Destinations
-
-          </h3>
-
-          <p className="text-gray-600">
-
-            Explore worldwide locations
-
-          </p>
-
-        </div>
-
-        <div className="text-center">
-
-          <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-
-            <Calendar className="h-8 w-8 text-blue-600"/>
-
-          </div>
-
-          <h3 className="font-semibold mb-1">
-
-            Easy Booking
-
-          </h3>
-
-          <p className="text-gray-600">
-
-            Simple and secure reservations
-
-          </p>
-
-        </div>
-
-        <div className="text-center">
-
-          <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-
-            <Users className="h-8 w-8 text-blue-600"/>
-
-          </div>
-
-          <h3 className="font-semibold mb-1">
-
-            10k+ Happy Customers
-
-          </h3>
-
-          <p className="text-gray-600">
-
-            Trusted by travelers worldwide
-
-          </p>
-
-        </div>
-
-        <div className="text-center">
-
-          <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-
-            <Award className="h-8 w-8 text-blue-600"/>
-
-          </div>
-
-          <h3 className="font-semibold mb-1">
-
-            Best Price Guarantee
-
-          </h3>
-
-          <p className="text-gray-600">
-
-            We match any lower price
-
-          </p>
-
-        </div>
 
       </div>
 

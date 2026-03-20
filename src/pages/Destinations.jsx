@@ -1,14 +1,15 @@
-// pages/Destinations.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, MapPin, Search } from 'lucide-react';
 
 const Destinations = () => {
+  const [filter, setFilter] = useState("All");  // ✅ ADD THIS
   const destinations = [
     {
       id: 1,
       name: "Goa",
       country: "India",
+      category: "Beaches",   // ✅ ADD
       description: "Famous for its beautiful beaches, vibrant nightlife, and Portuguese architecture.",
       image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
       rating: 4.5,
@@ -18,6 +19,7 @@ const Destinations = () => {
     {
       id: 2,
       name: "Manali",
+      category: "Mountains",
       country: "India",
       description: "Hill station in Himachal Pradesh known for snow-capped mountains and adventure sports.",
       image: "/manali.jpg",
@@ -28,6 +30,7 @@ const Destinations = () => {
     {
       id: 3,
       name: "Kerala",
+      category: "Beaches",
       country: "India",
       description: "God's Own Country - famous for backwaters, Ayurveda, and lush greenery.",
       image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
@@ -38,6 +41,7 @@ const Destinations = () => {
     {
       id: 4,
       name: "Ladakh",
+      category: "Mountains",
       country: "India",
       description: "Land of high passes, Buddhist monasteries, and stunning landscapes.",
       image: "https://images.unsplash.com/photo-1544984243-ec57ea16fe25?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
@@ -48,6 +52,7 @@ const Destinations = () => {
     {
       id: 5,
       name: "Jaipur",
+      category: "Heritage",
       country: "India",
       description: "Pink City famous for royal palaces, forts, and vibrant culture.",
       image: "jaipur.jpg",
@@ -57,7 +62,8 @@ const Destinations = () => {
     },
     {
       id: 6,
-      name: "Andaman",
+      name: "Andaman", 
+      category: "Spiritual",
       country: "India",
       description: "Tropical paradise with pristine beaches and water sports.",
       image: "andaman.jpg",
@@ -68,6 +74,7 @@ const Destinations = () => {
     {
       id: 7,
       name: "Rishikesh",
+      category: "Adventure",
       country: "India",
       description: "Yoga capital of the world, adventure sports and spirituality.",
       image: "https://images.unsplash.com/photo-1566552881560-0be862a7c445?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
@@ -78,6 +85,7 @@ const Destinations = () => {
     {
       id: 8,
       name: "Udaipur",
+      category: "Heritage",
       country: "India",
       description: "City of Lakes, romantic destinations and magnificent palaces.",
       image: "udaipur.jpg",
@@ -111,30 +119,32 @@ const Destinations = () => {
 
       {/* Filters */}
       <div className="flex flex-wrap gap-4 justify-center mb-12">
-        <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-          All
-        </button>
-        <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition">
-          Beaches
-        </button>
-        <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition">
-          Mountains
-        </button>
-        <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition">
-          Heritage
-        </button>
-        <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition">
-          Adventure
-        </button>
-        <button className="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 transition">
-          Spiritual
-        </button>
-      </div>
+      {["All", "Beaches", "Mountains", "Heritage", "Adventure", "Spiritual"].map((item) => (
+    
+    <button
+      key={item}
+      onClick={() => setFilter(item)}
+      className={`px-6 py-2 rounded-full font-medium transition-all duration-300
+      ${
+        filter === item
+          ? "bg-blue-600 text-white shadow-lg scale-105"   // ✅ Active
+          : "bg-gray-100 text-gray-700 hover:bg-blue-100 hover:text-blue-600" // ✅ Hover
+      }`}
+    >
+      {item}
+    </button>
+
+  ))}
+
+
+        </div>
 
       {/* Destinations Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {destinations.map((dest) => (
-          <div key={dest.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition group">
+        {destinations
+          .filter(dest => filter === "All" || dest.category === filter)
+          .map((dest) => (  
+            <div key={dest.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition group">
             <div className="relative h-48 overflow-hidden">
               <img 
                 src={dest.image} 

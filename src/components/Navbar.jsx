@@ -1,88 +1,3 @@
-// // components/Navbar.jsx
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import { Plane, Menu, X, User, Search } from 'lucide-react';
-
-// const Navbar = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   return (
-//     // <nav className="bg-white shadow-lg sticky top-0 z-50">
-//     // <nav className="bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 shadow-lg sticky top-0 z-50">
-//     <nav className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 shadow-lg sticky top-0 z-50">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <div className="flex justify-between items-center h-16">
-//           {/* Logo */}
-//           <Link to="/" className="flex items-center gap-1">
-//           {/* <Link to="/" className="flex items-center space-x-0"> */}
-//           <img
-//                 src="/Logo1-removebg.png"
-               
-//                 // className="h-10 md:h-12 lg:h-14 object-contain"
-
-//                 className="h-12 md:h-14 lg:h-16 object-contain"
-//               />
-//             {/* <Plane className="h-8 w-8 text-blue-600" /> */}
-//             <span className="font-bold text-xl bg-gradient-to-r from-yellow-300 to-white bg-clip-text text-transparent">
-//               First Track Tour & Travel
-            
-//           </span>
-//             {/* <span className="font-bold text-xl text-gray-800">First Track Tour & Travel</span> */}
-//           </Link>
-
-//           {/* Desktop Navigation */}
-//           <div className="hidden md:flex items-center space-x-8">
-//             <Link to="/destinations" className="text-gray-600 hover:text-blue-600 transition">Destinations</Link>
-//             <Link to="/packages" className="text-gray-600 hover:text-blue-600 transition">Packages</Link>
-//             <Link to="/hotels" className="text-gray-600 hover:text-blue-600 transition">Hotels</Link>
-//             <Link to="/transport" className="text-gray-600 hover:text-blue-600 transition">Transport</Link>
-            
-//             <div className="relative">
-//               <input
-//                 type="text"
-//                 placeholder="Search destinations..."
-//                 className="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:border-blue-500"
-//               />
-//               <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-//             </div>
-
-//             <Link to="/login" className="flex items-center space-x-1 bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition">
-//               <User className="h-5 w-5" />
-//               <span>Login</span>
-//             </Link>
-//           </div>
-
-//           {/* Mobile menu button */}
-//           <div className="md:hidden">
-//             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-600">
-//               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-//             </button>
-//           </div>
-//         </div>
-
-//         {/* Mobile Navigation */}
-//         {isOpen && (
-//           <div className="md:hidden pb-4">
-//             <div className="flex flex-col space-y-3">
-//               <Link to="/destinations" className="text-gray-600 hover:text-blue-600">Destinations</Link>
-//               <Link to="/packages" className="text-gray-600 hover:text-blue-600">Packages</Link>
-//               <Link to="/hotels" className="text-gray-600 hover:text-blue-600">Hotels</Link>
-//               <Link to="/transport" className="text-gray-600 hover:text-blue-600">Transport</Link>
-//               <Link to="/login" className="bg-blue-600 text-white px-4 py-2 rounded-lg text-center">Login</Link>
-//             </div>
-//           </div>
-//         )}
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
-
-
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, User, Search } from "lucide-react";
@@ -100,47 +15,64 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-1 group">
             <img
-              src="/Logo3.png"
-              className="h-12 object-contain transition-transform duration-300 group-hover:scale-110"
+              src="/Logo1-removebg.png"
+              className="h-16 object-contain transition-transform duration-300 group-hover:scale-110"
               alt="logo"
             />
 
-            <span className="font-bold text-lg md:text-xl 
-            bg-gradient-to-r from-yellow-300 to-white 
-            bg-clip-text text-transparent">
-              First Track Tour & Travel
-            </span>
+          
+          <div className="leading-tight">
+  
+              <div className="font-bold text-lg md:text-xl 
+                bg-gradient-to-r from-yellow-400 to-white 
+                bg-clip-text text-transparent">
+                First Track
+              </div>
+
+              <div className="font-semibold text-sm md:text-base ml-6 mt-1
+                bg-gradient-to-r from-yellow-300 to-gray-900 
+                bg-clip-text text-transparent">
+                Tour & Travel
+              </div>
+
+          </div>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
+          <Link to="/" className="text-white bold hover:text-yellow-200 transition duration-300">
+               Home
+          </Link>
+
 
             <Link to="/destinations"
-              className="text-white hover:text-yellow-200 transition duration-300">
+              className="text-white bold hover:text-yellow-200 transition duration-300">
               Destinations
             </Link>
 
             <Link to="/packages"
-              className="text-white hover:text-yellow-200 transition duration-300">
+              className="text-white bold hover:text-yellow-200 transition duration-300">
               Packages
             </Link>
 
             <Link to="/hotels"
-              className="text-white hover:text-yellow-200 transition duration-300">
+              className="text-white bold hover:text-yellow-200 transition duration-300">
               Hotels
             </Link>
 
             <Link to="/transport"
-              className="text-white hover:text-yellow-200 transition duration-300">
+              className="text-white bold hover:text-yellow-200 transition duration-300">
               Transport
             </Link>
             <Link to="/rent"
-              className="text-white hover:text-yellow-200 transition duration-300">
+              className="text-white bold hover:text-yellow-200 transition duration-300">
               Rent Bike
             </Link>
+          
+    
 
             {/* Search */}
-            <div className="relative">
+            {/* <div className="relative">
               <input
                 type="text"
                 placeholder="Search..."
@@ -150,7 +82,7 @@ const Navbar = () => {
                 focus:outline-none focus:ring-2 focus:ring-white"
               />
               <Search className="absolute left-3 top-2.5 h-5 w-5 text-white" />
-            </div>
+            </div> */}
 
             {/* Login Button */}
             <Link
@@ -175,28 +107,34 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 animate-fadeIn">
-            <div className="flex flex-col space-y-3 text-center">
+          <div className="md:hidden pb-4 animate-fadeIn absolute top-16 left-0 w-full bg-blue-600 z-50">
+            <div className="flex flex-col space-y-3 text-center p-4">
+              
+              <Link to="/" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
+                Home
+              </Link>
 
-              <Link to="/destinations" className="text-white hover:text-yellow-200">
+              <Link to="/destinations" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
                 Destinations
               </Link>
 
-              <Link to="/packages" className="text-white hover:text-yellow-200">
+              <Link to="/packages" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
                 Packages
               </Link>
 
-              <Link to="/hotels" className="text-white hover:text-yellow-200">
+              <Link to="/hotels" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
                 Hotels
               </Link>
 
-              <Link to="/transport" className="text-white hover:text-yellow-200">
+              <Link to="/transport" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
                 Transport
               </Link>
 
               <Link
                 to="/login"
-                className="bg-white text-blue-600 px-4 py-2 rounded-lg">
+                onClick={() => setIsOpen(false)}
+                className="bg-white text-blue-600 px-4 py-2 rounded-lg"
+              >
                 Login
               </Link>
 
