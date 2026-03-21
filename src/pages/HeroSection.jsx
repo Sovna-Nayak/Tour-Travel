@@ -258,6 +258,13 @@ import BookingCalendar from "../components/BookingCalendar";
 const HeroSection = () => {
   const [travelers, setTravelers] = useState(1);
   const [open, setOpen] = useState(false);
+  const [date, setDate] = useState("");
+
+  const formatDate = (value) => {
+    if (!value) return "";
+    const [year, month, day] = value.split("-");
+    return `${day}-${month}-${year}`;
+  };
 
   const increase = () => setTravelers((prev) => prev + 1);
   const decrease = () => setTravelers((prev) => (prev > 1 ? prev - 1 : 1));
@@ -330,38 +337,40 @@ const HeroSection = () => {
 
         <div className="flex flex-col gap-4 md:grid md:grid-cols-5">
 
-          {/* From */}
+          {/* FROM */}
           <input
             type="text"
             placeholder="From"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+            className="border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
           />
 
-          {/* To */}
+          {/* TO */}
           <input
             type="text"
             placeholder="To"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+            className="border border-gray-300 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
           />
 
-          {/* Date FIXED */}
+          {/* DATE FIX */}
           <div className="relative w-full">
             <input
-              type="text"
-              placeholder="dd-mm-yyyy"
-              onFocus={(e) => (e.target.type = "date")}
-              onBlur={(e) => {
-                if (!e.target.value) e.target.type = "text";
-              }}
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
               className="w-full border border-gray-300 rounded-xl px-4 py-3 
-              focus:ring-2 focus:ring-blue-500 outline-none appearance-none"
+              focus:ring-2 focus:ring-blue-500 outline-none text-transparent"
             />
+
+            <span className="absolute left-4 top-3 text-gray-500 pointer-events-none">
+              {date ? formatDate(date) : "dd-mm-yyyy"}
+            </span>
+
             <span className="absolute right-3 top-3 text-gray-500 pointer-events-none">
               📅
             </span>
           </div>
 
-          {/* Travelers */}
+          {/* TRAVELERS */}
           <div className="relative">
             <div
               onClick={(e) => {
@@ -392,7 +401,7 @@ const HeroSection = () => {
             )}
           </div>
 
-          {/* Button */}
+          {/* BUTTON */}
           <button className="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700">
             Search
           </button>
@@ -407,7 +416,7 @@ const HeroSection = () => {
           Check Availability
         </h2>
 
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div className="w-full overflow-x-auto">
             <div className="min-w-[300px]">
@@ -482,4 +491,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
