@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     // <nav className="sticky top-0 z-50 backdrop-blur-md bg-gradient-to-r from-blue-600/90 via-sky-500/90 to-cyan-400/90 shadow-lg">
     <nav className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 shadow-lg sticky top-0 z-50">
-      <div className="w-full px-6 lg:px-10">
+      <div className="w-full px-2 lg:px-4">
 
         <div className="flex justify-between items-center h-16">
 
@@ -29,9 +29,7 @@ const Navbar = () => {
                 First Track
               </div>
 
-              <div className="font-semibold text-sm md:text-base ml-6 mt-1
-                bg-gradient-to-r from-yellow-300 to-gray-900 
-                bg-clip-text text-transparent">
+              <div className="font-semibold text- md:text-base ml-6 mt-1 text-cyan-300">
                 Tour & Travel
               </div>
 
