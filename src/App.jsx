@@ -1,39 +1,65 @@
-// // App.js
 // import React from 'react';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { Toaster } from "react-hot-toast";
 // import Navbar from './components/Navbar';
 // import Footer from './components/Footer';
+// import WhatsAppButton from "./components/WhatsAppButton";
+// import ChatWidget from "./components/ChatWidget";
+
 // import Home from './pages/HeroSection';
 // import Destinations from './pages/Destinations';
 // import Packages from './pages/Packages';
 // import Hotels from './pages/Hotel';
 // import Transport from './pages/Transport';
+// import FAQ from "./pages/FAQ";
+// import PrivacyPolicy from "./pages/PrivacyPolicy";
+// import TermsOfUse from "./pages/TermsOfUse";
+// import RefundCancellation from "./pages/RefundCancellation";
+// import About from "./pages/About";
+// import Blog from "./pages/Blog";
+// import Support from "./pages/Support";
+// import Contact from "./pages/Contact";
 // import BookingCalendar from './components/BookingCalendar';
 // import Rent from "./pages/Rent";
 // import Login from './pages/Login';
 // import Signup from './pages/Signup';
+
 // import './index.css';
-// import { Import } from 'lucide-react';
-// import Footer from './components/Footer';
+// // import { Contact } from 'lucide-react';
 
 // function App() {
 //   return (
 //     <Router>
-//       <div className="min-h-screen bg-gray-50">
+//       <div className="min-h-screen bg-gray-50 flex flex-col">
+
 //         <Navbar />
-        
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           <Route path="/destinations" element={<Destinations />} />
-//           <Route path="/packages" element={<Packages />} />
-//           <Route path="/hotels" element={<Hotels />} />
-//           <Route path="/transport" element={<Transport />} />
-//           <Route path="/rent" element={<Rent />} />
-//           <Route path="/login" element={<Login />} />
-//           <Route path="/signup" element={<Signup />} />
-//         </Routes>
+//         <WhatsAppButton />   {/* 👈 yaha add karo */}
+//         <ChatWidget />
+//         <div className="flex-grow">
+//           <Routes>
+//             <Route path="/" element={<Home />} />
+//             <Route path="/destinations" element={<Destinations />} />
+//             <Route path="/packages" element={<Packages />} />
+//             <Route path="/hotels" element={<Hotels />} />
+//             <Route path="/transport" element={<Transport />} />
+//             <Route path="/rent" element={<Rent />} />
+//             <Route path="/faq" element={<FAQ />} />
+//             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+//             <Route path="/terms-of-use" element={<TermsOfUse />} />
+//             <Route path="/refund-cancellation" element={<RefundCancellation />} />
+//             <Route path="/about" element={<About />} />
+//             <Route path="/blog" element={<Blog />} />
+//             <Route path="/support" element={<Support />} />
+//             <Route path="/contact" element={<Contact />} />
+//             <Route path="/login" element={<Login />} />
+//             <Route path="/signup" element={<Signup />} />
+            
+//           </Routes>
+//         </div>
+
+//         <Footer />
+
 //       </div>
-//       <Footer />
 //     </Router>
 //   );
 // }
@@ -45,18 +71,24 @@
 
 
 
+
+
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from "react-hot-toast";
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from "./components/WhatsAppButton";
 import ChatWidget from "./components/ChatWidget";
+import ScrollToTop  from './components/ScrollToTop';
 
 import Home from './pages/HeroSection';
 import Destinations from './pages/Destinations';
 import Packages from './pages/Packages';
 import Hotels from './pages/Hotel';
+import HotelDetails from './pages/HotelDetails';
+import BookingPage from './pages/BookingPage';
 import Transport from './pages/Transport';
 import FAQ from "./pages/FAQ";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -71,42 +103,63 @@ import Rent from "./pages/Rent";
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
-import './index.css';
-// import { Contact } from 'lucide-react';
+import hotels from "./data/hotelsData";
 
+import './index.css';
+
+
+/* 🔥 Separate component to use useLocation */
+function AppContent() {
+  const location = useLocation();
+
+  return (
+   
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      <ScrollToTop />
+      <Navbar />
+
+      {/* ✅ Show only on Contact page */}
+      {location.pathname === "/contact" && <WhatsAppButton />}
+      {location.pathname === "/contact" && <ChatWidget />}
+
+      <div className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/destinations" element={<Destinations />} />
+          <Route path="/packages" element={<Packages />} />
+          <Route path="/hotels" element={<Hotels />} />
+          <Route path="/hotel/:id" element={<HotelDetails />} />
+          <Route path="/booking/:id" element={<BookingPage />} />
+          <Route path="/transport" element={<Transport />} />
+          <Route path="/rent" element={<Rent />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/refund-cancellation" element={<RefundCancellation />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          
+        </Routes>
+      </div>
+
+      <Footer />
+
+      {/* Toast */}
+      <Toaster position="top-right" />
+    </div>
+  );
+}
+
+
+/* 🔥 Main App */
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50 flex flex-col">
-
-        <Navbar />
-        <WhatsAppButton />   {/* 👈 yaha add karo */}
-        <ChatWidget />
-        <div className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/destinations" element={<Destinations />} />
-            <Route path="/packages" element={<Packages />} />
-            <Route path="/hotels" element={<Hotels />} />
-            <Route path="/transport" element={<Transport />} />
-            <Route path="/rent" element={<Rent />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-use" element={<TermsOfUse />} />
-            <Route path="/refund-cancellation" element={<RefundCancellation />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/support" element={<Support />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            
-          </Routes>
-        </div>
-
-        <Footer />
-
-      </div>
+      <AppContent />
     </Router>
   );
 }
