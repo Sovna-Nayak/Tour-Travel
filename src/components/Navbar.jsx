@@ -62,9 +62,9 @@ const Navbar = () => {
               className="text-white bold hover:text-yellow-200 transition duration-300">
               Transport
             </Link>
-            <Link to="/rent"
+            <Link to="/partner"
               className="text-white bold hover:text-yellow-200 transition duration-300">
-              Rent Bike
+              Partner
             </Link>
           
     
@@ -104,41 +104,57 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden pb-4 animate-fadeIn absolute top-16 left-0 w-full bg-blue-600 z-50">
-            <div className="flex flex-col space-y-3 text-center p-4">
-              
-              <Link to="/" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
-                Home
-              </Link>
+{isOpen && (
+  <div className="fixed inset-0 z-50">
 
-              <Link to="/destinations" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
-                Destinations
-              </Link>
+    {/* Overlay */}
+    <div
+      className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+      onClick={() => setIsOpen(false)}
+    ></div>
 
-              <Link to="/packages" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
-                Packages
-              </Link>
+    {/* Sidebar */}
+    <div
+  className={`absolute top-0 right-0 h-full w-[85%] max-w-sm 
+  bg-gradient-to-b from-slate-900 via-gray-900 to-black 
+  text-white shadow-2xl transform transition-transform duration-300 
+  ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+>
 
-              <Link to="/hotels" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
-                Hotels
-              </Link>
+      {/* Header */}
+      <div className="flex justify-between items-center px-4 py-4 border-b border-white/20">
+        <h1 className="font-bold text-lg">First Track</h1>
 
-              <Link to="/transport" onClick={() => setIsOpen(false)} className="text-white hover:text-yellow-200">
-                Transport
-              </Link>
+        <button onClick={() => setIsOpen(false)} className="text-2xl">
+          ✖
+        </button>
+      </div>
 
-              <Link
-                to="/login"
-                onClick={() => setIsOpen(false)}
-                className="bg-white text-blue-600 px-4 py-2 rounded-lg"
-              >
-                Login
-              </Link>
+      {/* Links */}
+      <div className="flex flex-col gap-5 px-6 py-6 text-lg">
+        <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+        <Link to="/destinations" onClick={() => setIsOpen(false)}>Destinations</Link>
+        <Link to="/packages" onClick={() => setIsOpen(false)}>Packages</Link>
+        <Link to="/hotels" onClick={() => setIsOpen(false)}>Hotels</Link>
+        <Link to="/transport" onClick={() => setIsOpen(false)}>Transport</Link>
+        <Link to="/partner" onClick={() => setIsOpen(false)}>Partner</Link>
+      </div>
 
-            </div>
-          </div>
-        )}
+      {/* Bottom Button */}
+      <div className="absolute bottom-0 w-full p-4">
+        <Link
+          to="/login"
+          onClick={() => setIsOpen(false)}
+          className="block text-center bg-white text-blue-600 py-3 rounded-xl"
+        >
+          Login
+        </Link>
+      </div>
+
+    </div>
+  </div>
+)}
+
 
       </div>
     </nav>

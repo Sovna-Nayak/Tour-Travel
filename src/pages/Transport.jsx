@@ -417,8 +417,43 @@ const Transport = () => {
         duration: "5h",
         price: "₹1,450"
       }
-    ]
-  };
+    ],
+  
+   bikes : [
+    {
+      name: "Royal Enfield Classic 350",
+      price: 500,
+      engine: "350cc",
+      mileage: "35 km/l",
+      fuel: "Petrol",
+      image: "/royal.jpg"
+    },
+    {
+      name: "KTM Duke 200",
+      price: 700,
+      engine: "200cc",
+      mileage: "30 km/l",
+      fuel: "Petrol",
+      image: "/ktm.jpg"
+    },
+    {
+      name: "Yamaha R15",
+      price: 600,
+      engine: "155cc",
+      mileage: "40 km/l",
+      fuel: "Petrol",
+      image: "/r15.jpg"
+    },
+    {
+      name: "Honda Activa",
+      price: 300,
+      engine: "110cc",
+      mileage: "45 km/l",
+      fuel: "Petrol",
+      image: "/activa.jpg"
+    }
+  ]
+};
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
@@ -433,7 +468,8 @@ const Transport = () => {
           { id: 'flights', label: 'Flights', icon: Plane },
           { id: 'buses', label: 'Buses', icon: Bus },
           { id: 'trains', label: 'Trains', icon: Train },
-          { id: 'cabs', label: 'Cabs', icon: Car }
+          { id: 'cabs', label: 'Cabs', icon: Car },
+          { id: 'bikes', label: 'Bikes', icon: Users }
         ].map(({ id, label, icon: Icon }) => (
           <button
             key={id}
@@ -590,6 +626,33 @@ const Transport = () => {
                 </button>
               </div>
 
+            </div>
+          ))}
+        </div>
+      )}
+
+    {/* bikes */}    
+      {activeTab === 'bikes' && (
+        <div className="grid md:grid-cols-3 gap-4">
+          {transportOptions.bikes.map((r) => (
+            <div key={r.id} className="bg-white rounded-xl shadow overflow-hidden">
+              <img src={r.image} className="h-40 w-full object-cover" />
+              <div className="p-4">
+                <h3 className="font-semibold">{r.type}</h3>
+                <p className="text-sm text-gray-500">{r.model}</p>
+
+                <div className="text-sm mt-2">
+                  <p>Seats: {r.seats}</p>
+                  <p>Fuel: {r.fuel}</p>
+                </div>
+
+                <div className="flex justify-between mt-3">
+                  <span className="text-blue-600 font-bold">{r.price}</span>
+                  <button className="bg-blue-600 text-white px-3 py-1 rounded">
+                    Rent Now
+                  </button>
+                </div>
+              </div>
             </div>
           ))}
         </div>

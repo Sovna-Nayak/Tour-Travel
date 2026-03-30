@@ -99,13 +99,14 @@ import Blog from "./pages/Blog";
 import Support from "./pages/Support";
 import Contact from "./pages/Contact";
 import BookingCalendar from './components/BookingCalendar';
-import Rent from "./pages/Rent";
+import Rent from "./pages/Partner";
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 import hotels from "./data/hotelsData";
 
 import './index.css';
+import Partner from './pages/Partner';
 
 
 /* 🔥 Separate component to use useLocation */
@@ -131,7 +132,7 @@ function AppContent() {
           <Route path="/hotel/:id" element={<HotelDetails />} />
           <Route path="/booking/:id" element={<BookingPage />} />
           <Route path="/transport" element={<Transport />} />
-          <Route path="/rent" element={<Rent />} />
+          <Route path="/partner" element={<Partner />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />
