@@ -6,6 +6,7 @@ const Packages = () => {
   const [days, setDays] = useState(null);
   const [open, setOpen] = useState(false);
   const [travelers, setTravelers] = useState("Adult"); 
+  const [selectedPackage, setSelectedPackage] = useState(null);
   const packages = [
     {
       id: 1,
@@ -79,83 +80,63 @@ const Packages = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-4xl font-bold mb-8">Travel Packages</h1>
       
-      {/* Filters */}
+        {/* Filters */}
           <div className="bg-white rounded-lg shadow p-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative">
 
-{/* Dropdown Box */}
-<div
-onClick={() => setOpen(!open)}
-className="border rounded-lg px-4 py-2 bg-white cursor-pointer transition-all duration-300"
->
+        {/* Dropdown Box */}
+        <div
+        onClick={() => setOpen(!open)}
+        className="border rounded-lg px-4 py-2 bg-white cursor-pointer transition-all duration-300"
+        >
 
-{/* Top Row */}
-<div className="flex justify-between items-center">
-  <span className="text-gray-600">Days</span>
-  <span className="font-semibold">
-    {days ? days : ""}
-  </span>
-</div>
+        {/* Top Row */}
+        <div className="flex justify-between items-center">
+          <span className="text-gray-600">Days</span>
+          <span className="font-semibold">
+            {days ? days : ""}
+          </span>
+        </div>
 
-{/* Expand Section */}
-{open && (
-  <div className="mt-3 pt-3 border-t flex justify-between items-center">
+        {/* Expand Section */}
+        {open && (
+          <div className="mt-3 pt-3 border-t flex justify-between items-center">
 
-    <span className="text-gray-600">Select Days</span>
+            <span className="text-gray-600">Select Days</span>
 
-    <div className="flex items-center gap-3">
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setDays(days > 1 ? days - 1 : 1);
-        }}
-        className="bg-gray-200 px-3 py-1 rounded"
-      >
-        -
-      </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setDays(days > 1 ? days - 1 : 1);
+                }}
+                className="bg-gray-200 px-3 py-1 rounded"
+              >
+                -
+              </button>
 
-      <span className="font-semibold">
-        {days ? days : 1}
-      </span>
+              <span className="font-semibold">
+                {days ? days : 1}
+              </span>
 
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          setDays((days || 0) + 1);
-        }}
-        className="bg-gray-200 px-3 py-1 rounded"
-      >
-        +
-      </button>
-    </div>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setDays((days || 0) + 1);
+                }}
+                className="bg-gray-200 px-3 py-1 rounded"
+              >
+                +
+              </button>
+            </div>
 
-  </div>
-)}
+          </div>
+        )}
 
-</div>
-</div>
-              {/* Duration Counter */}
-              {/* <div className="border rounded-lg px-4 py-2 flex items-center justify-between">
-                <span className="text-gray-600">Days</span> */}
-
-                {/* <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => setDays(days > 1 ? days - 1 : 1)}
-                    className="bg-gray-200 px-2 rounded hover:bg-gray-300"
-                  >
-                    -
-                  </button>
-
-                  <span className="font-semibold">{days}</span>
-
-                  <button
-                    onClick={() => setDays(days + 1)}
-                    className="bg-gray-200 px-2 rounded hover:bg-gray-300"
-                  >
-                    +
-                  </button>
-                </div> */}
+        </div>
+        </div>
+            
               {/* </div> */}
 
               {/* Budget */}
@@ -185,32 +166,7 @@ className="border rounded-lg px-4 py-2 bg-white cursor-pointer transition-all du
 
             </div>
          </div>
-      {/* <div className="bg-white rounded-lg shadow p-6 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <select className="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
-            <option>Duration</option>
-            <option>1-3 Days</option>
-            <option>4-6 Days</option>
-            <option>7+ Days</option>
-          </select>
-          <select className="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
-            <option>Budget</option>
-            <option>Under ₹15,000</option>
-            <option>₹15,000 - ₹25,000</option>
-            <option>Above ₹25,000</option>
-          </select>
-          <select className="border rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
-            <option>Travelers</option>
-            <option>Solo</option>
-            <option>Couple</option>
-            <option>Family</option>
-            <option>Group</option>
-          </select>
-          <button className="bg-blue-600 text-white rounded-lg px-6 py-2 hover:bg-blue-700 transition">
-            Apply Filters
-          </button>
-        </div>
-      </div> */}
+  
 
       {/* Packages Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -252,14 +208,86 @@ className="border rounded-lg px-4 py-2 bg-white cursor-pointer transition-all du
               
               <div className="flex items-center justify-between mb-4">
                 <span className="text-sm text-gray-500">{pkg.reviews} reviews</span>
-                <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                  Book Now
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setSelectedPackage(pkg)}
+                    className="bg-gray-200 px-4 py-2 rounded-lg"
+                  >
+                    View Details
+                  </button>
+
+                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                    Book Now
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
+      {selectedPackage && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    
+    <div className="bg-white rounded-xl w-[95%] md:w-[700px] p-6 relative overflow-y-auto max-h-[90vh]">
+
+      {/* Close Button */}
+      <button
+        onClick={() => setSelectedPackage(null)}
+        className="absolute top-3 right-4 text-2xl"
+      >
+        ✖
+      </button>
+
+      {/* Image */}
+      <img
+        src={selectedPackage.image}
+        alt={selectedPackage.name}
+        className="w-full h-60 object-cover rounded-lg mb-4"
+      />
+
+      {/* Title */}
+      <h2 className="text-2xl font-bold mb-2">
+        {selectedPackage.name}
+      </h2>
+
+      {/* Price */}
+      <p className="text-blue-600 text-lg font-semibold mb-2">
+        {selectedPackage.price}
+      </p>
+
+      {/* Info Row */}
+      <div className="flex flex-wrap gap-4 text-gray-600 text-sm mb-3">
+        <span>⏱ {selectedPackage.duration}</span>
+        <span>👥 Max {selectedPackage.maxPeople} People</span>
+        <span>⭐ {selectedPackage.rating} ({selectedPackage.reviews})</span>
+      </div>
+
+      {/* Highlights */}
+      <div className="mb-4">
+        <h3 className="font-semibold mb-1">Highlights:</h3>
+        <div className="flex flex-wrap gap-2">
+          {selectedPackage.highlights.map((h, i) => (
+            <span key={i} className="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs">
+              {h}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Description */}
+      <p className="text-gray-600 text-sm mb-4">
+        Enjoy a wonderful trip to {selectedPackage.name}. This package includes comfortable stay,
+        guided tours, local sightseeing, and exciting activities. Perfect for relaxation and adventure.
+      </p>
+
+      {/* Button */}
+      <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+        Book This Package
+      </button>
+
+    </div>
+  </div>
+)} 
     </div>
   );
 };
