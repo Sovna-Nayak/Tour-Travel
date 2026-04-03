@@ -99,6 +99,7 @@ import Blog from "./pages/Blog";
 import Support from "./pages/Support";
 import Contact from "./pages/Contact";
 import BookingCalendar from './components/BookingCalendar';
+import Partner from './pages/Partner';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
