@@ -126,6 +126,7 @@ import Contact from "./pages/Contact";
 import Partner from './pages/Partner';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import TravelHelpDesk from "./pages/TravelHelpDesk";
 
 import './index.css';
 
@@ -163,6 +164,7 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/support/chat" element={<TravelHelpDesk />} />
         </Routes>
       </div>
 
