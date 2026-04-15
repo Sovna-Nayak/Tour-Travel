@@ -9,5 +9,11 @@ const hotels = [
     { id: 8, name: "Simple Stay", location: "Jaipur", price: 4500, rating: 2, reviews: 180, amenities: ["Free WiFi"], image: "/Simple_Stay.jpg" },
     { id: 9, name: "Elite Resort", location: "Goa", price: 21000, rating: 5, reviews: 300, amenities: ["Pool","Spa","Restaurant","Beach Access"], image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" },
     { id: 10, name: "City Lodge", location: "Bangalore", price: 6000, rating: 3, reviews: 200, amenities: ["Free WiFi","Restaurant"], image: "/City_Lodge.jpg" },
+    { id: 11, name: "Mayfair Lagoon", location: "Bhubaneswar", district: "Bhubaneswar", price: 8999, rating: 5, reviews: 950, amenities: ["Free WiFi","Pool","Spa","Restaurant"], image: "https://images.unsplash.com/photo-1566073771259-6a8506099945" },
+    { id: 12, name: "Swosti Premium", location: "Bhubaneswar", district: "Bhubaneswar", price: 6500, rating: 4, reviews: 500, amenities: ["Free WiFi","Restaurant","Parking"], image: "/Swosti_Premium_images.jpg" },
+    { id: 13, name: "Cuttack Residency", location: "Cuttack", district: "Cuttack", price: 4000, rating: 3, reviews: 220, amenities: ["Free WiFi","Parking"], image: "/Cuttack_Residency_images.jpg" },
+    { id: 14, name: "Sambalpur Inn", location: "Sambalpur", district: "Sambalpur", price: 3500, rating: 3, reviews: 150, amenities: ["Free WiFi"], image: "/Sambalpur_Inn_images.jpg" },
+    { id: 15, name: "Rourkela Grand", location: "Rourkela", district: "Rourkela", price: 5000, rating: 4, reviews: 300, amenities: ["Free WiFi","Restaurant","Parking"], image: "/Rourkela_Grand_images.jpg" },
+
   ];
   export default hotels; 
