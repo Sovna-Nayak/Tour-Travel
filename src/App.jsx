@@ -114,7 +114,7 @@ import Packages from './pages/Packages';
 import Hotels from './pages/Hotel';
 import HotelDetails from './pages/HotelDetails';
 import BookingPage from './pages/BookingPage';
-import Transport from './pages/Transport';
+import Vehicle  from './pages/Vehicle';
 import FAQ from "./pages/FAQ";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
@@ -152,7 +152,7 @@ function AppContent() {
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/hotel/:id" element={<HotelDetails />} />
           <Route path="/booking/:id" element={<BookingPage />} />
-          <Route path="/transport" element={<Transport />} />
+          <Route path="/vehicle" element={<Vehicle />} />
           <Route path="/partner" element={<Partner />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plane, Bus, Car, Train, Clock, Users, Luggage, Coffee } from 'lucide-react';
 
-const Transport = () => {
+const Vehicle = () => {
   const [activeTab, setActiveTab] = useState('flights');
   const [date, setDate] = useState("");
   const [passengers, setPassengers] = useState(0);
@@ -12,7 +12,7 @@ const Transport = () => {
     return `${day}-${month}-${year}`;
   };
 
-  const transportOptions = {
+  const VehicleOptions = {
     flights: [
       {
         id: 1,
@@ -122,7 +122,7 @@ const Transport = () => {
     <div className="max-w-7xl mx-auto px-4 py-6">
 
       <h1 className="text-2xl md:text-4xl font-bold mb-6">
-        Book Your Transport
+        Book Your vehicle 
       </h1>
 
       {/* TABS */}
@@ -221,7 +221,7 @@ const Transport = () => {
       {/* FLIGHTS */}
       {activeTab === 'flights' && (
         <div className="space-y-4">
-          {transportOptions.flights.map((f) => (
+          {VehicleOptions.flights.map((f) => (
             <div key={f.id} className="bg-white p-4 rounded-xl shadow flex flex-col md:flex-row justify-between">
 
               <div className="flex items-center gap-3">
@@ -264,7 +264,7 @@ const Transport = () => {
       {/* CABS */}
       {activeTab === 'cabs' && (
         <div className="grid md:grid-cols-3 gap-4">
-          {transportOptions.cabs.map((c) => (
+          {VehicleOptions.cabs.map((c) => (
             <div key={c.id} className="bg-white rounded-xl shadow overflow-hidden">
               <img src={c.image} className="h-40 w-full object-cover" />
               <div className="p-4">
@@ -292,7 +292,7 @@ const Transport = () => {
       {/* BUSES + TRAINS */}
       {(activeTab === 'buses' || activeTab === 'trains') && (
         <div className="space-y-4">
-          {transportOptions[activeTab].map((item, i) => (
+          {VehicleOptions[activeTab].map((item, i) => (
             <div key={i} className="bg-white p-4 rounded-xl shadow flex justify-between flex-col md:flex-row">
 
               <div>
@@ -320,7 +320,7 @@ const Transport = () => {
     {/* bikes */}    
       {activeTab === 'bikes' && (
         <div className="grid md:grid-cols-3 gap-4">
-          {transportOptions.bikes.map((r) => (
+          {VehicleOptions.bikes.map((r) => (
             <div key={r.id} className="bg-white rounded-xl shadow overflow-hidden">
               <img src={r.image} className="h-40 w-full object-cover" />
               <div className="p-4">
@@ -348,4 +348,4 @@ const Transport = () => {
   );
 };
 
-export default Transport;
+export default Vehicle;
