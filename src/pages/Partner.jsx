@@ -200,7 +200,9 @@ const PropertyType = () => {
   ];
 
   // 🔷 VEHICLE DATA
-    { name: "MiniBuses", icon: <Bus size={20} />, desc: "Add buses for travel and tours." },
+  const vehicles = [
+    
+    { name: "Buses", icon: <Bus size={20} />, desc: "Add buses for travel and tours." },
     { name: "Cabs", icon: <Car size={20} />, desc: "Register cabs for city rides." },
     { name: "Bikes", icon: <Bike size={20} />, desc: "Add bikes for short trips." },
   ];
