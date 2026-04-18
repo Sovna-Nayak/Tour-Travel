@@ -227,9 +227,9 @@ const Navbar = () => {
               Hotels
             </Link>
 
-            <Link to="/transport"
+            <Link to="/vehicle"
               className="text-white bold hover:text-yellow-200 transition duration-300">
-              Transport
+              Vehicle
             </Link>
             <Link to="/partner"
               className="text-white bold hover:text-yellow-200 transition duration-300">
@@ -305,7 +305,7 @@ const Navbar = () => {
         <Link to="/destinations" onClick={() => setIsOpen(false)}>Destinations</Link>
         <Link to="/packages" onClick={() => setIsOpen(false)}>Packages</Link>
         <Link to="/hotels" onClick={() => setIsOpen(false)}>Hotels</Link>
-        <Link to="/transport" onClick={() => setIsOpen(false)}>Transport</Link>
+        <Link to="/vehicle" onClick={() => setIsOpen(false)}>Vehicle</Link>
         <Link to="/partner" onClick={() => setIsOpen(false)}>Partner</Link>
       </div>
 

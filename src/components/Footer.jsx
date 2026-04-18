@@ -120,7 +120,7 @@
 
 import { Facebook, Instagram, Phone, Mail, MapPin, Youtube, Linkedin } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-
+import SmartChatBot from "../pages/SmartChatBot";
 const Footer = () => {
   const navigate = useNavigate(); // ✅ FIX
 
@@ -148,12 +148,20 @@ const Footer = () => {
           </p>
 
           {/* ✅ CHAT BUTTON (BEST POSITION) */}
-          <button
+          {/* <button
             onClick={() => navigate("/support/chat")}
             className="bg-blue-600 text-white px-4 py-2 rounded mt-4 hover:bg-blue-700 transition"
           >
             💬 Travel Help Desk
-          </button>
+          </button> */}
+
+
+            <div className="mt-10 bg-white/10 p-4 rounded-xl flex flex-col items-center">
+              <h3 className="text-white mb-3 text-lg font-semibold">
+                💬 Chat with us
+              </h3>
+              <SmartChatBot />
+            </div>
         </div>
 
         {/* Quick Links */}
@@ -164,7 +172,7 @@ const Footer = () => {
             <li><Link to="/destinations" className="hover:text-yellow-400">Destinations</Link></li>
             <li><Link to="/packages" className="hover:text-yellow-400">Packages</Link></li>
             <li><Link to="/hotels" className="hover:text-yellow-400">Hotels</Link></li>
-            <li><Link to="/transport" className="hover:text-yellow-400">Transport</Link></li>
+            <li><Link to="/vehicle" className="hover:text-yellow-400">Vehicle</Link></li>
             <li><Link to="/partner" className="hover:text-yellow-400">Partner</Link></li>
           </ul>
         </div>
