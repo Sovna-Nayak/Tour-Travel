@@ -2,6 +2,7 @@
 // import { Link } from "react-router-dom";
 // import { Menu, X, User, Search } from "lucide-react";
 
+
 // const Navbar = () => {
 //   const [isOpen, setIsOpen] = useState(false);
 
@@ -58,9 +59,9 @@
 //               Hotels
 //             </Link>
 
-//             <Link to="/transport"
+//             <Link to="/vehicle"
 //               className="text-white bold hover:text-yellow-200 transition duration-300">
-//               Transport
+//               Vehicle
 //             </Link>
 //             <Link to="/partner"
 //               className="text-white bold hover:text-yellow-200 transition duration-300">
@@ -136,7 +137,7 @@
 //         <Link to="/destinations" onClick={() => setIsOpen(false)}>Destinations</Link>
 //         <Link to="/packages" onClick={() => setIsOpen(false)}>Packages</Link>
 //         <Link to="/hotels" onClick={() => setIsOpen(false)}>Hotels</Link>
-//         <Link to="/transport" onClick={() => setIsOpen(false)}>Transport</Link>
+//         <Link to="/vehicle" onClick={() => setIsOpen(false)}>Vehicle</Link>
 //         <Link to="/partner" onClick={() => setIsOpen(false)}>Partner</Link>
 //       </div>
 
@@ -170,6 +171,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, User, Search } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -207,34 +209,108 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-white bold hover:text-yellow-200 transition duration-300">
-               Home
-          </Link>
+          <NavLink 
+            to="/" 
+            className={({ isActive }) =>
+              `relative text-white font-bold cursor-pointer 
+              hover:text-yellow-200 transition duration-300
+              
+              after:content-[''] after:absolute after:left-0 after:-bottom-1 
+              after:h-[2px] after:bg-yellow-300 
+              after:transition-all after:duration-300
+              
+              hover:after:w-full
+              ${isActive ? "after:w-full" : "after:w-0"}`
+            }
+          >
+            HOME
+          </NavLink>
 
 
-            <Link to="/destinations"
-              className="text-white bold hover:text-yellow-200 transition duration-300">
-              Destinations
-            </Link>
+          <NavLink 
+            to="/destinations"
+            className={({ isActive }) =>
+              `relative text-white font-bold cursor-pointer 
+              hover:text-yellow-200 transition duration-300
+              
+              after:content-[''] after:absolute after:left-0 after:-bottom-1 
+              after:h-[2px] after:bg-yellow-300 
+              after:transition-all after:duration-300
+              
+              hover:after:w-full
+              ${isActive ? "after:w-full" : "after:w-0"}`
+            }
+          >
+            DESTINATION
+          </NavLink>
 
-            <Link to="/packages"
-              className="text-white bold hover:text-yellow-200 transition duration-300">
-              Packages
-            </Link>
+           <NavLink 
+              to="/packages"
+              className={({ isActive }) =>
+                `relative text-white font-bold cursor-pointer 
+                hover:text-yellow-200 transition duration-300
+                
+                after:content-[''] after:absolute after:left-0 after:-bottom-1 
+                after:h-[2px] after:bg-yellow-300 
+                after:transition-all after:duration-300
+                
+                hover:after:w-full
+                ${isActive ? "after:w-full" : "after:w-0"}`
+              }
+            >
+              PACKAGES
+            </NavLink>
 
-            <Link to="/hotels"
-              className="text-white bold hover:text-yellow-200 transition duration-300">
-              Hotels
-            </Link>
+            <NavLink 
+                to="/hotels"
+                className={({ isActive }) =>
+                  `relative text-white font-bold cursor-pointer 
+                  hover:text-yellow-200 transition duration-300
+                  
+                  after:content-[''] after:absolute after:left-0 after:-bottom-1 
+                  after:h-[2px] after:bg-yellow-300 
+                  after:transition-all after:duration-300
+                  
+                  hover:after:w-full
+                  ${isActive ? "after:w-full" : "after:w-0"}`
+                }
+              >
+                HOTELS
+              </NavLink>
 
-            <Link to="/vehicle"
-              className="text-white bold hover:text-yellow-200 transition duration-300">
-              Vehicle
-            </Link>
-            <Link to="/partner"
-              className="text-white bold hover:text-yellow-200 transition duration-300">
-              Partner
-            </Link>
+              <NavLink 
+                to="/vehicle"
+                className={({ isActive }) =>
+                  `relative text-white font-bold cursor-pointer 
+                  hover:text-yellow-200 transition duration-300
+                  
+                  after:content-[''] after:absolute after:left-0 after:-bottom-1 
+                  after:h-[2px] after:bg-yellow-300 
+                  after:transition-all after:duration-300
+                  
+                  hover:after:w-full
+                  ${isActive ? "after:w-full" : "after:w-0"}`
+                }
+              >
+              VEHICLE
+              </NavLink>
+
+            <NavLink 
+              to="/partner"
+              className={({ isActive }) =>
+                `relative text-white font-bold cursor-pointer 
+                hover:text-yellow-200 transition duration-300
+                
+                after:content-[''] after:absolute after:left-0 after:-bottom-1 
+                after:h-[2px] after:bg-yellow-300 
+                after:transition-all after:duration-300
+                
+                hover:after:w-full
+                ${isActive ? "after:w-full" : "after:w-0"}`
+              }
+            >
+              PARTNER
+            </NavLink>
           
     
 
@@ -273,22 +349,22 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-{isOpen && (
-  <div className="fixed inset-0 z-50">
+        {isOpen && (
+          <div className="fixed inset-0 z-50">
 
-    {/* Overlay */}
-    <div
-      className="absolute inset-0 bg-black/30 backdrop-blur-sm"
-      onClick={() => setIsOpen(false)}
-    ></div>
+            {/* Overlay */}
+            <div
+              className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+            ></div>
 
-    {/* Sidebar */}
-    <div
-  className={`absolute top-0 right-0 h-full w-[85%] max-w-sm 
-  bg-gradient-to-b from-slate-900 via-gray-900 to-black 
-  text-white shadow-2xl transform transition-transform duration-300 
-  ${isOpen ? "translate-x-0" : "translate-x-full"}`}
->
+            {/* Sidebar */}
+            <div
+          className={`absolute top-0 right-0 h-full w-[85%] max-w-sm 
+          bg-gradient-to-b from-slate-900 via-gray-900 to-black 
+          text-white shadow-2xl transform transition-transform duration-300 
+          ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
 
       {/* Header */}
       <div className="flex justify-between items-center px-4 py-4 border-b border-white/20">

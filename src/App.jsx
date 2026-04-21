@@ -127,7 +127,8 @@ import Partner from './pages/Partner';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import SmartChatBot from "./pages/SmartChatBot";
-
+import HotelRegistrationForm from './pages/HotelRegistrationForm';
+import HomeRegistrationForm from "./pages/HomeRegistrationForm";
 import './index.css';
 
 /* 🔥 Separate component to use useLocation */
@@ -164,6 +165,8 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/hotel-registration" element={<HotelRegistrationForm />} />
+          <Route path="/home-registration" element={<HomeRegistrationForm />} />
           {/* <Route path="/support/chat" element={<SmartChatBot />} /> */}
         </Routes>
       </div>

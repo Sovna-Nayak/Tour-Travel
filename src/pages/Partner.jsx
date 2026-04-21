@@ -180,158 +180,131 @@
 
 
 
-import React from "react";
-import { Plane, Bus, Train, Car, Bike } from "lucide-react";
 
-const PropertyType = () => {
-
-  // 🔷 PROPERTY DATA
-  const properties = [
-    {
-      name: "Hotel",
-      icon: "🏨",
-      desc: "A commercial property offering private rooms, suites, and accommodations.",
-    },
-    {
-      name: "Home",
-      icon: "🏡",
-      desc: "A residential space where guests can book rooms or the entire home.",
-    },
-  ];
-
-  // 🔷 VEHICLE DATA
-  const vehicles = [
-    
-    { name: "Buses", icon: <Bus size={20} />, desc: "Add buses for travel and tours." },
-    { name: "Cabs", icon: <Car size={20} />, desc: "Register cabs for city rides." },
-    { name: "Bikes", icon: <Bike size={20} />, desc: "Add bikes for short trips." },
-  ];
-
-  return (
-    <div className="min-h-screen bg-gray-100 px-4 py-6">
-
-      <div className="text-center">
-
-        {/* 🔷 PROPERTY SECTION */}
-        <h2 className="text-2xl font-bold text-blue-600 mb-2">
-          Are you a property owner?
-        </h2>
-
-        <p className="text-lg font-semibold mb-6">
-          What type of property do you want to register?
-        </p>
-
-        {/* PROPERTY CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
-          {properties.map((p, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-lg border p-4 shadow-sm cursor-pointer hover:shadow-md transition"
-            >
-              <h3 className="text-lg font-semibold mb-1 flex items-center justify-center gap-2">
-                {p.icon} {p.name}
-              </h3>
-              <p className="text-gray-600 text-sm">{p.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* 🔷 VEHICLE SECTION */}
-        <h2 className="text-2xl font-bold text-blue-600 mb-2">
-          Are you a Vehicle owner?
-        </h2>
-
-        <p className="text-lg font-semibold mb-6">
-          What type of Vehicle do you want to register?
-        </p>
-
-        {/* VEHICLE CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-          {vehicles.map((v, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-lg border p-4 shadow-sm cursor-pointer hover:shadow-md transition"
-            >
-              <h3 className="text-lg font-semibold mb-1 flex items-center justify-center gap-2">
-                {v.icon} {v.name}
-              </h3>
-              <p className="text-gray-600 text-sm">{v.desc}</p>
-            </div>
-          ))}
-        </div>
-
-      </div>
-    </div>
-  );
-};
-
-export default PropertyType;
-
-
-
-
-
-// import React from "react";
+// import React, { useState } from "react";
+// import { Rocket } from "lucide-react";
 
 // const PropertyType = () => {
+
+//   const [openCard, setOpenCard] = useState(null);
+
+//   const properties = [
+//     { name: "Hotel", icon: "🏨", desc: "A commercial property offering rooms." },
+//     { name: "Home", icon: "🏡", desc: "A residential space for booking." },
+//   ];
+
+//   const vehicles = [
+//     { name: "Buses", icon: "🚌", desc: "Add buses for travel and tours." },
+//     { name: "Cabs", icon: "🚕", desc: "Register cabs for city rides." },
+//     { name: "Bikes", icon: "🏍", desc: "Add bikes for short trips." },
+//   ];
+
+//   const handleToggle = (name) => {
+//     setOpenCard(openCard === name ? null : name);
+//   };
+
 //   return (
-//     <div className="min-h-screen bg-gray-100 px-4 py-6">
+//     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 px-4 py-10">
+//       <div className="text-center max-w-5xl mx-auto">
 
-//       {/* 🔷 GRID LAYOUT */}
-//       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+//          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 flex items-center justify-center gap-3">
+          
+//           <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-2 rounded-full shadow-md">
+//             🚀
+//           </span>
+//           Register Your Service
+//         </h1>
 
-//         {/* 🔷 LEFT SIDE - PROPERTY */}
-//         <div className="text-center">
-//           <h2 className="text-2xl font-bold text-blue-600 mb-2">
-//             Are you a property owner?
-//           </h2>
+//         {/* 🔷 PROPERTY SECTION */}
+//         <h2 className="text-2xl font-bold text-blue-600 mb-2">
+//           Are you a property owner?
+//         </h2>
 
-//           <p className="text-lg font-semibold mb-6">
-//             What type of property do you want to register?
-//           </p>
+//         <p className="text-gray-600 mb-8">
+//           Choose your property type to get started
+//         </p>
 
-//           {/* HOTEL */}
-//           <div className="bg-white rounded-lg border p-4 mb-4 max-w-sm mx-auto shadow-sm cursor-pointer hover:shadow-md transition">
-//             <h3 className="text-lg font-semibold mb-1">🏨 Hotel</h3>
-//             <p className="text-gray-600 text-sm">
-//               A commercial property offering private rooms.
-//             </p>
-//           </div>
-
-//           {/* HOME */}
-//           <div className="bg-white rounded-lg border p-4 max-w-sm mx-auto shadow-sm cursor-pointer hover:shadow-md transition">
-//             <h3 className="text-lg font-semibold mb-1">🏡 Home</h3>
-//             <p className="text-gray-600 text-sm">
-//               A residential space for short stays.
-//             </p>
-//           </div>
+//         {/* PROPERTY CARDS */}
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+//           {properties.map((p, i) => (
+//             <div
+//               key={i}
+//               className="bg-white rounded-xl border p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 cursor-pointer"
+//             >
+//               <h3 className="text-xl font-semibold flex justify-center gap-2 mb-2">
+//                 <span className="text-2xl">{p.icon}</span> {p.name}
+//               </h3>
+//               <p className="text-gray-500 text-sm">{p.desc}</p>
+//             </div>
+//           ))}
 //         </div>
 
-//         {/* 🔷 RIGHT SIDE - VEHICLE */}
-//         <div className="text-center">
-//           <h2 className="text-2xl font-bold text-blue-600 mb-2">
-//             Are you a Vehicle owner?
-//           </h2>
+//         {/* 🔷 VEHICLE SECTION */}
+//         <h2 className="text-2xl font-bold text-blue-600 mb-2">
+//           Are you a vehicle owner?
+//         </h2>
 
-//           <p className="text-lg font-semibold mb-6">
-//             What type of Vehicle do you want to register?
-//           </p>
+//         <p className="text-gray-600 mb-8">
+//           Select your vehicle category
+//         </p>
 
-//           {/* CAR */}
-//           <div className="bg-white rounded-lg border p-4 mb-4 max-w-sm mx-auto shadow-sm cursor-pointer hover:shadow-md transition">
-//             <h3 className="text-lg font-semibold mb-1">🚗 Car</h3>
-//             <p className="text-gray-600 text-sm">
-//               Register your car for rental services.
-//             </p>
-//           </div>
+//         {/* VEHICLE CARDS */}
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-//           {/* BIKE */}
-//           <div className="bg-white rounded-lg border p-4 max-w-sm mx-auto shadow-sm cursor-pointer hover:shadow-md transition">
-//             <h3 className="text-lg font-semibold mb-1">🏍 Bike</h3>
-//             <p className="text-gray-600 text-sm">
-//               Add your bike for bookings.
-//             </p>
-//           </div>
+//           {vehicles.map((v, i) => (
+//             <div key={i}>
+
+//               {/* MAIN CARD */}
+//               <div
+//                 onClick={() => handleToggle(v.name)}
+//                 className="bg-white rounded-xl border p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 cursor-pointer"
+//               >
+//                 <h3 className="text-xl font-semibold flex justify-center gap-2 mb-2">
+//                   <span className="text-2xl">{v.icon}</span> {v.name}
+//                 </h3>
+//                 <p className="text-gray-500 text-sm">{v.desc}</p>
+//               </div>
+
+//               {/* 🔥 SUB OPTIONS */}
+//               {openCard === v.name && (
+//                 <div className="mt-4 space-y-3 animate-fadeIn">
+
+//                   {/* CABS */}
+//                   {v.name === "Cabs" && (
+//                     <>
+//                       <div className="bg-white border rounded-lg p-3 shadow hover:bg-blue-50 cursor-pointer">
+//                         🚗 4 Seater
+//                       </div>
+//                       <div className="bg-white border rounded-lg p-3 shadow hover:bg-blue-50 cursor-pointer">
+//                         🚐 6 Seater
+//                       </div>
+//                       <div className="bg-white border rounded-lg p-3 shadow hover:bg-blue-50 cursor-pointer">
+//                         🚙 8 Seater
+//                       </div>
+//                     </>
+//                   )}
+
+//                   {/* BIKES */}
+//                   {v.name === "Bikes" && (
+//                     <>
+//                       <div className="bg-white border rounded-lg p-3 shadow hover:bg-blue-50 cursor-pointer">
+//                         🛵 Scooty
+//                       </div>
+//                       <div className="bg-white border rounded-lg p-3 shadow hover:bg-blue-50 cursor-pointer">
+//                         🏍 Bullet
+//                       </div>
+//                       <div className="bg-white border rounded-lg p-3 shadow hover:bg-blue-50 cursor-pointer">
+//                         🚴 Bike
+//                       </div>
+//                     </>
+//                   )}
+
+//                 </div>
+//               )}
+
+//             </div>
+//           ))}
+
 //         </div>
 
 //       </div>
@@ -340,3 +313,209 @@ export default PropertyType;
 // };
 
 // export default PropertyType;
+
+
+
+
+
+import React, { useState } from "react";
+import { Rocket } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // ✅ IMPORT
+
+
+const PropertyType = () => {
+  const navigate = useNavigate(); // ✅ INITIALIZE
+  const [openCard, setOpenCard] = useState(null);
+
+  const properties = [
+    { name: "Hotel", icon: "🏨", desc: "A commercial property offering private rooms, suites, and other accommodations for guests."},
+    { name: "Home", icon: "🏡", desc: "A residential space where guests can book individual rooms or the entire home for short stays." },
+  ];
+
+  const vehicles = [
+    { name: "Buses", icon: "🚌", desc: "Add buses for travel and tours." },
+    { name: "Cabs", icon: "🚕", desc: "Register cabs for city rides." },
+    { name: "Bikes", icon: "🏍", desc: "Add bikes for short trips." },
+  ];
+
+  const handleToggle = (name) => {
+    setOpenCard(openCard === name ? null : name);
+  };
+
+  // ✅ NAVIGATION
+  const handlePropertyClick = (type) => {
+    if (type === "Hotel") {
+      navigate("/hotel-registration");
+    }
+    if (type === "Home") {
+      navigate("/home-registration");
+    }
+  };
+
+
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 px-4 py-10">
+
+      <div className="text-center max-w-5xl mx-auto">
+
+        {/* 🔷 HERO SECTION */}
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2 flex items-center justify-center gap-3">
+          <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white p-2 rounded-full shadow-md animate-pulse">
+            <Rocket size={22} />
+          </span>
+          Register Your Service
+        </h1>
+
+        <p className="text-gray-500 mb-10 text-sm md:text-base">
+          List your property or vehicle and start earning today 🚀
+        </p>
+
+        {/* 🔷 PROPERTY SECTION */}
+        <div className="bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-lg mb-10">
+
+          <h2 className="text-2xl font-bold text-blue-600 mb-2">
+            Are you a property owner?
+          </h2>
+
+          <p className="text-gray-600 mb-8">
+            Choose your property type to get started
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {properties.map((p, i) => (
+              <div
+                key={i}
+                onClick={() => handlePropertyClick(p.name)} // ✅ IMPORTANT
+                className="bg-white rounded-xl border border-gray-200 p-6 shadow-md 
+                hover:shadow-xl hover:-translate-y-1 hover:border-purple-400 
+                transition duration-300 cursor-pointer"
+              >
+                <h3 className="text-xl font-semibold flex justify-center items-center gap-2 mb-2">
+                  <span className="bg-purple-100 text-purple-600 p-2 rounded-full text-xl">
+                    {p.icon}
+                  </span>
+                  {p.name}
+                </h3>
+                <p className="text-gray-500 text-sm">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+        {/* 🔷 DIVIDER */}
+        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-gray-300 to-transparent my-10"></div>
+
+        {/* 🔷 VEHICLE SECTION */}
+        <div className="bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-lg">
+
+          <h2 className="text-2xl font-bold text-blue-600 mb-2">
+            Are you a vehicle owner?
+          </h2>
+
+          <p className="text-gray-600 mb-8">
+            Select your vehicle category
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {vehicles.map((v, i) => (
+              <div key={i}>
+
+                {/* MAIN CARD */}
+                <div
+                  onClick={() => handleToggle(v.name)}
+                  className={`bg-white rounded-xl border p-6 shadow-md cursor-pointer transition duration-300
+                  ${openCard === v.name 
+                    ? "border-blue-500 bg-blue-50" 
+                    : "hover:shadow-xl hover:-translate-y-1 hover:border-blue-400"}
+                  `}
+                >
+                  <h3 className="text-xl font-semibold flex justify-center items-center gap-2 mb-2">
+                    <span className="bg-blue-100 text-blue-600 p-2 rounded-full text-xl">
+                      {v.icon}
+                    </span>
+                    {v.name}
+                  </h3>
+                  <p className="text-gray-500 text-sm">{v.desc}</p>
+                </div>
+
+                {/* 🔥 SUB OPTIONS */}
+{openCard === v.name && (
+  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 animate-fadeIn">
+
+    {/* 🚕 CABS */}
+    {v.name === "Cabs" && (
+      <>
+        <div className="bg-white border rounded-xl p-4 shadow-md hover:shadow-lg hover:-translate-y-1 transition cursor-pointer flex items-center gap-3">
+          <span className="bg-blue-100 text-blue-600 p-2 rounded-full text-lg">🚗</span>
+          <div>
+            <p className="font-semibold">4 Seater</p>
+            <p className="text-xs text-gray-500">Perfect for small families</p>
+          </div>
+        </div>
+
+        <div className="bg-white border rounded-xl p-4 shadow-md hover:shadow-lg hover:-translate-y-1 transition cursor-pointer flex items-center gap-3">
+          <span className="bg-blue-100 text-blue-600 p-2 rounded-full text-lg">🚐</span>
+          <div>
+            <p className="font-semibold">6 Seater</p>
+            <p className="text-xs text-gray-500">Best for group travel</p>
+          </div>
+        </div>
+
+        <div className="bg-white border rounded-xl p-4 shadow-md hover:shadow-lg hover:-translate-y-1 transition cursor-pointer flex items-center gap-3">
+          <span className="bg-blue-100 text-blue-600 p-2 rounded-full text-lg">🚙</span>
+          <div>
+            <p className="font-semibold">8 Seater</p>
+            <p className="text-xs text-gray-500">Ideal for large groups</p>
+          </div>
+        </div>
+      </>
+    )}
+
+    {/* 🏍 BIKES */}
+    {v.name === "Bikes" && (
+      <>
+        <div className="bg-white border rounded-xl p-4 shadow-md hover:shadow-lg hover:-translate-y-1 transition cursor-pointer flex items-center gap-3">
+          <span className="bg-purple-100 text-purple-600 p-2 rounded-full text-lg">🛵</span>
+          <div>
+            <p className="font-semibold">Scooty</p>
+            <p className="text-xs text-gray-500">Easy city rides</p>
+          </div>
+        </div>
+
+        <div className="bg-white border rounded-xl p-4 shadow-md hover:shadow-lg hover:-translate-y-1 transition cursor-pointer flex items-center gap-3">
+          <span className="bg-purple-100 text-purple-600 p-2 rounded-full text-lg">🏍</span>
+          <div>
+            <p className="font-semibold">Bullet</p>
+            <p className="text-xs text-gray-500">Powerful long rides</p>
+          </div>
+        </div>
+
+        <div className="bg-white border rounded-xl p-4 shadow-md hover:shadow-lg hover:-translate-y-1 transition cursor-pointer flex items-center gap-3">
+          <span className="bg-purple-100 text-purple-600 p-2 rounded-full text-lg">🚴</span>
+          <div>
+            <p className="font-semibold">Bike</p>
+            <p className="text-xs text-gray-500">Affordable daily rides</p>
+          </div>
+        </div>
+      </>
+    )}
+
+  </div>
+)}
+
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default PropertyType;
