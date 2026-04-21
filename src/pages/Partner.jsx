@@ -320,9 +320,11 @@
 
 import React, { useState } from "react";
 import { Rocket } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // ✅ IMPORT
+
 
 const PropertyType = () => {
-
+  const navigate = useNavigate(); // ✅ INITIALIZE
   const [openCard, setOpenCard] = useState(null);
 
   const properties = [
@@ -339,6 +341,18 @@ const PropertyType = () => {
   const handleToggle = (name) => {
     setOpenCard(openCard === name ? null : name);
   };
+
+  // ✅ NAVIGATION
+  const handlePropertyClick = (type) => {
+    if (type === "Hotel") {
+      navigate("/hotel-registration");
+    }
+    if (type === "Home") {
+      navigate("/home-registration");
+    }
+  };
+
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 px-4 py-10">
@@ -372,6 +386,7 @@ const PropertyType = () => {
             {properties.map((p, i) => (
               <div
                 key={i}
+                onClick={() => handlePropertyClick(p.name)} // ✅ IMPORTANT
                 className="bg-white rounded-xl border border-gray-200 p-6 shadow-md 
                 hover:shadow-xl hover:-translate-y-1 hover:border-purple-400 
                 transition duration-300 cursor-pointer"

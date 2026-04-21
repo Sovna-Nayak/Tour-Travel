@@ -349,22 +349,22 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-{isOpen && (
-  <div className="fixed inset-0 z-50">
+        {isOpen && (
+          <div className="fixed inset-0 z-50">
 
-    {/* Overlay */}
-    <div
-      className="absolute inset-0 bg-black/30 backdrop-blur-sm"
-      onClick={() => setIsOpen(false)}
-    ></div>
+            {/* Overlay */}
+            <div
+              className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+            ></div>
 
-    {/* Sidebar */}
-    <div
-  className={`absolute top-0 right-0 h-full w-[85%] max-w-sm 
-  bg-gradient-to-b from-slate-900 via-gray-900 to-black 
-  text-white shadow-2xl transform transition-transform duration-300 
-  ${isOpen ? "translate-x-0" : "translate-x-full"}`}
->
+            {/* Sidebar */}
+            <div
+          className={`absolute top-0 right-0 h-full w-[85%] max-w-sm 
+          bg-gradient-to-b from-slate-900 via-gray-900 to-black 
+          text-white shadow-2xl transform transition-transform duration-300 
+          ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
 
       {/* Header */}
       <div className="flex justify-between items-center px-4 py-4 border-b border-white/20">
