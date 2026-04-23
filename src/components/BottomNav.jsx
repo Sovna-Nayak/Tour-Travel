@@ -17,7 +17,7 @@ const BottomNav = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 shadow-[0_-4px_15px_rgba(0,0,0,0.2)]">
+    <div className="fixed bottom-0 left-0 w-full bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-600 shadow-[0_-4px_15px_rgba(0,0,0,0.2)] md:hidden">
 
   {/* ✅ Reduced height */}
   <div className="flex justify-around items-center h-16">
