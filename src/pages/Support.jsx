@@ -1,4 +1,4 @@
-// pages/Support.jsx
+
 import React, { useState } from "react";
 import { Search, Phone, Mail, MessageCircle, BookOpen, CreditCard, User, Map } from "lucide-react";
 const Support = () => {
@@ -85,44 +85,6 @@ const Support = () => {
 
             </div>
             </section>
-        {/* <section>
-          <h2 className="text-2xl font-bold text-blue-900 mb-6 text-center">
-            Quick Help
-          </h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            {categories.map((cat, i) => (
-              <div
-                key={i}
-                className="bg-white p-6 rounded-xl shadow hover:shadow-xl transition transform hover:-translate-y-1 text-center"
-              >
-                <HelpCircle className="mx-auto mb-3 text-blue-600" />
-                <h3 className="font-semibold text-lg">{cat.title}</h3>
-                <p className="text-gray-500 text-sm">{cat.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section> */}
-
-        {/* ❓ FAQs */}
-        {/* <section>
-          <h2 className="text-2xl font-bold text-blue-900 mb-6 text-center">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-4 max-w-2xl mx-auto">
-            {faqs
-              .filter((f) =>
-                f.toLowerCase().includes(search.toLowerCase())
-              )
-              .map((faq, i) => (
-                <div
-                  key={i}
-                  className="bg-white p-4 rounded-lg shadow hover:shadow-md transition cursor-pointer"
-                >
-                  {faq}
-                </div>
-              ))}
-          </div>
-        </section> */}
 
         {/* 📞 Contact Options */}
         <section>
@@ -133,15 +95,23 @@ const Support = () => {
             
             {/* Chat */}
             <div className="bg-white p-6 rounded-xl shadow text-center hover:shadow-xl transition">
-              <MessageCircle className="mx-auto text-green-500 mb-3" />
-              <h3 className="font-semibold text-lg">Live Chat</h3>
-              <p className="text-gray-500 text-sm mb-4">
-                Chat with our support team instantly
-              </p>
-              <button className="bg-green-500 text-white px-5 py-2 rounded hover:bg-green-600 transition">
-                Start Chat
-              </button>
-            </div>
+  <MessageCircle className="mx-auto text-green-500 mb-3" />
+  
+  <h3 className="font-semibold text-lg">Live Chat</h3>
+  
+  <p className="text-gray-500 text-sm mb-4">
+    Chat with our support team instantly
+  </p>
+
+  <a
+    href="https://wa.me/919876543210?text=Hello%20I%20need%20help%20with%20booking"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-green-500 text-white px-5 py-2 rounded hover:bg-green-600 transition inline-block"
+  >
+    Start Chat
+  </a>
+</div>
 
             {/* Call */}
             <div className="bg-white p-6 rounded-xl shadow text-center hover:shadow-xl transition">
