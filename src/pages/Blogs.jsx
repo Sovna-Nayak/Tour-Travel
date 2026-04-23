@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Calendar, MessageCircle } from "lucide-react";
 
-const Blog = () => {
+const Blogs = () => {
   const posts = [
     {
       title: "Top 10 Beaches to Visit in 2026",
@@ -102,4 +102,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Blogs;
